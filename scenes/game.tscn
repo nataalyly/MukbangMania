@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dcev4ueuhef8s" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://kpru6lyg0pms" path="res://scripts/character.gd" id="2_kvpfn"]
-[ext_resource type="Texture2D" uid="uid://bxekmpc6l46ic" path="res://assets/Character/Eating0.PNG" id="3_dinhu"]
+[ext_resource type="Texture2D" uid="uid://c18lgku4mvqbi" path="res://assets/Character/Eating0.PNG" id="3_dinhu"]
 [ext_resource type="PackedScene" uid="uid://pgo7f32ee5d2" path="res://Scenes/plate.tscn" id="3_iywne"]
-[ext_resource type="Texture2D" uid="uid://xj8elfco6g1h" path="res://assets/Character/Eating1.PNG" id="4_kvuet"]
+[ext_resource type="Texture2D" uid="uid://c4s2brr3thnd2" path="res://assets/Character/Eating1.PNG" id="4_kvuet"]
 [ext_resource type="Script" uid="uid://dx2ucmrtdl3m7" path="res://scripts/slice_panel.gd" id="4_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://4gkvm4vxravi" path="res://assets/Character/Eating2.PNG" id="5_trtic"]
-[ext_resource type="Texture2D" uid="uid://ccesx13ddke04" path="res://assets/Character/Happy.PNG" id="6_ir15t"]
-[ext_resource type="Texture2D" uid="uid://b853irr83dyay" path="res://assets/Character/Default.PNG" id="7_ca42v"]
-[ext_resource type="Texture2D" uid="uid://q6noaj21mou6" path="res://assets/Character/Blink.PNG" id="8_rysoc"]
-[ext_resource type="Texture2D" uid="uid://br5aft5gk42s8" path="res://assets/Character/Fat.PNG" id="9_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://djh3s2rt7emja" path="res://assets/Character/Eating2.PNG" id="5_trtic"]
+[ext_resource type="Texture2D" uid="uid://cfsk4b80vwx6e" path="res://assets/Character/Happy.PNG" id="6_ir15t"]
+[ext_resource type="Texture2D" uid="uid://ewocsfhsptuu" path="res://assets/Character/Default.PNG" id="7_ca42v"]
+[ext_resource type="Texture2D" uid="uid://dx2ipi70e1lgo" path="res://assets/Character/Blink.PNG" id="8_rysoc"]
+[ext_resource type="Texture2D" uid="uid://3fcb3ato0dc0" path="res://assets/Character/Fat.PNG" id="9_ssvqc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6fxcj"]
 animations = [{
