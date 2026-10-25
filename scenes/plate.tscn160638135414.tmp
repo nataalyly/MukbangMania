@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://pgo7f32ee5d2"]
+
+[ext_resource type="Script" uid="uid://c70goasmf8156" path="res://scripts/plate.gd" id="1_2x0a8"]
+[ext_resource type="Texture2D" uid="uid://hyjju2hn0ha1" path="res://icon.svg" id="2_qy4xk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ub0k5"]
+radius = 150.0
+
+[node name="Plate" type="Node2D" unique_id=1893149201]
+script = ExtResource("1_2x0a8")
+
+[node name="PlateSprite" type="Sprite2D" parent="." unique_id=1833936706]
+modulate = Color(0.7666196, 0.76661956, 0.76661956, 1)
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("2_qy4xk")
+
+[node name="Pieces" type="Node2D" parent="." unique_id=979932253]
+
+[node name="FractionLabel" type="Label" parent="." unique_id=1505033274]
+offset_left = -100.0
+offset_top = 170.0
+offset_right = 100.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 48
+text = "1/4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropArea" type="Area2D" parent="." unique_id=586322229]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea" unique_id=226757659]
+shape = SubResource("CircleShape2D_ub0k5")

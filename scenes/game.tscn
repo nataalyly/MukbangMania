@@ -1,0 +1,387 @@
+[gd_scene format=3 uid="uid://bky83wbodyah1"]
+
+[ext_resource type="Script" uid="uid://dcev4ueuhef8s" path="res://scripts/game.gd" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://kpru6lyg0pms" path="res://scripts/character.gd" id="2_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://bxekmpc6l46ic" path="res://assets/Character/Eating0.PNG" id="3_dinhu"]
+[ext_resource type="PackedScene" uid="uid://pgo7f32ee5d2" path="res://Scenes/plate.tscn" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://xj8elfco6g1h" path="res://assets/Character/Eating1.PNG" id="4_kvuet"]
+[ext_resource type="Script" uid="uid://dx2ucmrtdl3m7" path="res://scripts/slice_panel.gd" id="4_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://4gkvm4vxravi" path="res://assets/Character/Eating2.PNG" id="5_trtic"]
+[ext_resource type="Texture2D" uid="uid://ccesx13ddke04" path="res://assets/Character/Happy.PNG" id="6_ir15t"]
+[ext_resource type="Texture2D" uid="uid://b853irr83dyay" path="res://assets/Character/Default.PNG" id="7_ca42v"]
+[ext_resource type="Texture2D" uid="uid://q6noaj21mou6" path="res://assets/Character/Blink.PNG" id="8_rysoc"]
+[ext_resource type="Texture2D" uid="uid://br5aft5gk42s8" path="res://assets/Character/Fat.PNG" id="9_ssvqc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6fxcj"]
+animations = [{
+"frames": [{
+"duration": 2.5,
+"texture": ExtResource("3_dinhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kvuet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_trtic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kvuet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_trtic")
+}],
+"loop": 0,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("6_ir15t")
+}],
+"loop": 1,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": ExtResource("7_ca42v")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_rysoc")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("9_ssvqc")
+}],
+"loop": 1,
+"name": &"kenyang",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub0k5"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7yla"]
+bg_color = Color(0.09201663, 0.9396568, 7.70092e-07, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Game" type="Node2D" unique_id=177574991]
+script = ExtResource("1_lnu2h")
+
+[node name="Background" type="ColorRect" parent="." unique_id=495910266]
+offset_left = -300.0
+offset_right = 2220.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.78431374, 1, 1, 1)
+
+[node name="Character" type="Node2D" parent="." unique_id=415134028]
+position = Vector2(960, 480)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_kvpfn")
+
+[node name="Body" type="AnimatedSprite2D" parent="Character" unique_id=1160489448]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_6fxcj")
+animation = &"idle"
+
+[node name="SpeechBubble" type="Panel" parent="Character" unique_id=1006713841]
+offset_left = 60.0
+offset_top = -168.0
+offset_right = 363.0857
+offset_bottom = -86.4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ub0k5")
+
+[node name="QuestionLabel" type="Label" parent="Character/SpeechBubble" unique_id=1258100745]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "2/3 + 1/4 = ?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Table" type="ColorRect" parent="." unique_id=1286220874]
+offset_left = -300.0
+offset_top = 640.0
+offset_right = 2220.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0.5294118, 0.19607843, 0, 1)
+
+[node name="PlateLeft" parent="." unique_id=1893149201 instance=ExtResource("3_iywne")]
+position = Vector2(500, 800)
+
+[node name="PlateCenter" parent="." unique_id=1858896014 instance=ExtResource("3_iywne")]
+modulate = Color(1, 0.78431374, 1, 1)
+position = Vector2(960, 800)
+can_be_sliced = false
+can_give = false
+
+[node name="PlateRight" parent="." unique_id=1298055734 instance=ExtResource("3_iywne")]
+position = Vector2(1420, 800)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=791409499]
+
+[node name="BtnCheck" type="Button" parent="UI" unique_id=802245014]
+custom_minimum_size = Vector2(160, 160)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -680.0
+offset_right = -110.0
+offset_bottom = -520.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_b7yla")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b7yla")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b7yla")
+text = "OK"
+
+[node name="BtnReset" type="Button" parent="UI" unique_id=537692261]
+custom_minimum_size = Vector2(160, 160)
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 260.0
+offset_bottom = 560.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_b7yla")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b7yla")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b7yla")
+text = "Ulang"
+
+[node name="SlicePanel" type="Panel" parent="UI" unique_id=927734965]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -400.0
+offset_right = 650.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_lbhrr")
+
+[node name="TitleLabel" type="Label" parent="UI/SlicePanel" unique_id=1897975355]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -181.0
+offset_right = 181.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Potong tiap bagian jadi:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentSlot" type="Control" parent="UI/SlicePanel" unique_id=730320203]
+custom_minimum_size = Vector2(360, 220)
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.257
+anchor_right = 0.5
+anchor_bottom = 0.257
+offset_left = -180.0
+offset_top = -109.600006
+offset_right = 180.0
+offset_bottom = 110.399994
+grow_horizontal = 2
+
+[node name="CurrentInfo" type="Label" parent="UI/SlicePanel" unique_id=2053261351]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -161.5
+offset_right = 37.0
+offset_bottom = -94.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "2/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="HBoxContainer" parent="UI/SlicePanel" unique_id=1509179060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = 0.5
+offset_right = 280.0
+offset_bottom = 191.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Option0" type="VBoxContainer" parent="UI/SlicePanel/Options" unique_id=2014203846]
+layout_mode = 2
+
+[node name="Btn" type="Button" parent="UI/SlicePanel/Options/Option0" unique_id=243499536]
+custom_minimum_size = Vector2(160, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "2"
+
+[node name="Slot" type="Control" parent="UI/SlicePanel/Options/Option0" unique_id=1023084084]
+custom_minimum_size = Vector2(260, 160)
+layout_mode = 2
+
+[node name="Info" type="Label" parent="UI/SlicePanel/Options/Option0" unique_id=1249930168]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+text = "1/4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Option1" type="VBoxContainer" parent="UI/SlicePanel/Options" unique_id=1428662844]
+layout_mode = 2
+
+[node name="Btn" type="Button" parent="UI/SlicePanel/Options/Option1" unique_id=1970572940]
+custom_minimum_size = Vector2(160, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "3"
+
+[node name="Slot" type="Control" parent="UI/SlicePanel/Options/Option1" unique_id=1054536194]
+custom_minimum_size = Vector2(260, 160)
+layout_mode = 2
+
+[node name="Info" type="Label" parent="UI/SlicePanel/Options/Option1" unique_id=2116051819]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+text = "1/6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Option2" type="VBoxContainer" parent="UI/SlicePanel/Options" unique_id=1965255360]
+layout_mode = 2
+
+[node name="Btn" type="Button" parent="UI/SlicePanel/Options/Option2" unique_id=342185049]
+custom_minimum_size = Vector2(160, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "4"
+
+[node name="Slot" type="Control" parent="UI/SlicePanel/Options/Option2" unique_id=1410247673]
+custom_minimum_size = Vector2(260, 160)
+layout_mode = 2
+
+[node name="Info" type="Label" parent="UI/SlicePanel/Options/Option2" unique_id=767353899]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+text = "2/5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnCancel" type="Button" parent="UI/SlicePanel" unique_id=309895188]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 64
+text = "X"
+
+[node name="InputBlocker" type="ColorRect" parent="UI" unique_id=516638179]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ResultPopup" type="Panel" parent="UI" unique_id=1891572074]
+visible = false
+custom_minimum_size = Vector2(900, 520)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -260.0
+offset_right = 450.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="UI/ResultPopup" unique_id=542994964]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageLabel" type="Label" parent="UI/ResultPopup/VBox" unique_id=857093900]
+layout_mode = 2
+theme_override_font_sizes/font_size = 110
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DetailLabel" type="Label" parent="UI/ResultPopup/VBox" unique_id=26462843]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="UI/ResultPopup/VBox" unique_id=1168984458]
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="BtnRetry" type="Button" parent="UI/ResultPopup/VBox/Buttons" unique_id=664391418]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Ulang"
+
+[node name="BtnNext" type="Button" parent="UI/ResultPopup/VBox/Buttons" unique_id=334524905]
+custom_minimum_size = Vector2(260, 120)
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Next"
