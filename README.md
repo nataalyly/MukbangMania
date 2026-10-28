@@ -2,6 +2,7 @@
 **nataalyly** (Game Programmer)<br>
 **vincentAsp** (Game Programmer, Game Artist)<br>
 **Akqua** (Game Artist)
+**Grace & Team** (Game Designer)
 
 ## About
 **Mukbang Mania** is an educational puzzle game that makes adding fractions fun for elementary school students (grades 3-4). A hungry streamer goes live and asks for a snack, and the player has to prepare the exact portion: look at the fractions on the plates, cut the food so every piece is the same size, then drag the right number of pieces onto the main plate. Get it right and the streamer eats happily, get it wrong and they end up with a stomachache. Built to be played in the browser on a phone in landscape mode.
