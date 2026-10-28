@@ -1,7 +1,7 @@
 ## Developer & Contributions
 **nataalyly** (Game Programmer)<br>
 **vincentAsp** (Game Programmer, Game Artist)<br>
-**Akqua** (Game Artist)
+**Akqua** (Game Artist)<br>
 **Grace & Team** (Game Designer)
 
 ## About
